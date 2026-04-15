@@ -6,7 +6,7 @@ spark = SparkSession.builder \
     .appName("COVID desde HDFS") \
     .getOrCreate()
 
-# Ruta en HDFS (IMPORTANTE: usa Tarea31)
+# Ruta en HDFS 
 file_path = "hdfs://localhost:9000/Tarea31/covid19.csv"
 
 # Leer archivo
