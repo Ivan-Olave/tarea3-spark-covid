@@ -17,14 +17,14 @@ schema = StructType([
     StructField("timestamp", IntegerType())
 ])
 
-# Leer desde Kafka
+# Leemos desde Kafka
 df = spark.readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "localhost:9092") \
     .option("subscribe", "covid19_colombia") \
     .load()
 
-# Convertir JSON
+# Convertimos JSON
 parsed = df.select(
     from_json(col("value").cast("string"), schema).alias("data")
 ).select("data.*")
